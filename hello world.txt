@@ -1,1 +1,175 @@
 hello world
+
+
+Search on Unix & Linux…
+Unix & Linux Stack Exchange is a question and answer site for users of Linux, FreeBSD and other Un*x-like operating systems. It only takes a minute to sign up.
+
+
+Anybody can ask a question
+
+Anybody can answer
+
+The best answers are voted up and rise to the top
+Unix & Linux
+Home
+PUBLIC
+Questions
+Tags
+Users
+Companies
+Unanswered
+TEAMS
+Stack Overflow for Teams – Start collaborating and sharing organizational knowledge. 
+Can date format current time for GMT timezone? [duplicate]
+Asked 5 years ago
+Modified 5 years ago
+Viewed 61k times
+
+37
+
+
+This question already has answers here:
+How can I have `date` output the time from a different timezone? (7 answers)
+Closed 5 years ago.
+When I run date +"%Y%m%d%H%M%S" I receive 20171225203309 here in CET time zone.
+
+Can I use date to obtain a the current time in the same format, but for timezone GMT?
+
+datetimezone
+Share
+Improve this question
+Follow
+asked Dec 25, 2017 at 19:35
+Drux's user avatar
+Drux
+51711 gold badge55 silver badges88 bronze badges
+If you're in CET (CEST) do you really want GMT/UTC or do you want the UK/Portugal WET (WEST) timezone? UTC/GMT never changes but WET (WEST) jumps twice a year like your own timezone. – 
+roaima
+ Dec 25, 2017 at 23:42
+@roaima The first (GMT/UTC). – 
+Drux
+ Dec 26, 2017 at 2:24 
+1
+@muru But date -u only mentioned (as answer) here. – 
+Drux
+ Dec 26, 2017 at 3:20
+@Drux special case only for UTC. The general way for using another timezone is the TZ environment variable. OP of that question even mentions this: "Looking through man date I see that I can have the time output as UTC" – 
+muru
+ Dec 26, 2017 at 3:24 
+Add a comment
+2 Answers
+Sorted by:
+
+Highest score (default)
+
+55
+
+
+You can use date -u (universal time) which is equivalent to GMT.
+
+Quoting date manual:
+
+‘-u’ ‘--utc’ ‘--universal’
+
+Use Universal Time by operating as if the ‘TZ’ environment variable were set to the string ‘UTC0’. UTC stands for Coordinated Universal Time, established in 1960. Universal Time is often called “Greenwich Mean Time” (GMT) for historical reasons. Typically, systems ignore leap seconds and thus implement an approximation to UTC rather than true UTC.
+
+Share
+Improve this answer
+Follow
+answered Dec 25, 2017 at 20:02
+jimmij's user avatar
+jimmij
+44.6k1818 gold badges118118 silver badges135135 bronze badges
+Add a comment
+
+17
+
+
+Use the following command:
+
+TZ=GMT date
+The same format:
+
+TZ=GMT date +"%Y%m%d%H%M%S"
+20171225194014
+Share
+Improve this answer
+Follow
+answered Dec 25, 2017 at 19:38
+GAD3R's user avatar
+GAD3R
+60.4k3030 gold badges125125 silver badges189189 bronze badges
+Add a comment
+Not the answer you're looking for? Browse other questions tagged datetimezone or ask your own question.
+The Overflow Blog
+The Great Resignation is here. What does that mean for developers?
+Remote work is killing big offices. Cities must change to survive
+Featured on Meta
+Navigation and UI research starting soon
+How do we want to handle AI-generated answers?
+Linked
+173
+How can I have `date` output the time from a different timezone?
+Related
+1
+Timezone, Time setting in Linux using shellscript
+4
+Russian timezone is not up-to-date
+4
+bash terminal [\t] (time) is not same timezone as 'date'
+173
+How can I have `date` output the time from a different timezone?
+3
+Get time for system default timezone
+2
+epoch time for GMT
+2
+linux redhat + change time from UTC to GMT+X
+2
+Convert specific time in specific timezone to time in user’s timezone without using GNU date
+2
+Getting epoch time from gmt time stamp
+Hot Network Questions
+My cursor becomes invisible when hovering at curly braces
+How to model not-met demand to next period?
+Is it possible to damage internal engine using a substitute crank locking pin?
+Translation of "whoever saves one life saves the world entire"
+Reconstruct unsaved QuickOSM layers in QGIS
+more hot questions
+UNIX & LINUX
+Tour
+Help
+Chat
+Contact
+Feedback
+COMPANY
+Stack Overflow
+Teams
+Advertising
+Collectives
+Talent
+About
+Press
+Legal
+Privacy Policy
+Terms of Service
+Cookie Settings
+Cookie Policy
+STACK EXCHANGE NETWORK
+Technology
+Culture & recreation
+Life & arts
+Science
+Professional
+Business
+API
+Data
+Blog
+Facebook
+Twitter
+LinkedIn
+Instagram
+Site design / logo © 2022 Stack Exchange Inc; user contributions licensed under CC BY-SA. rev 2022.12.21.43127
+
+Linux is a registered trademark of Linus Torvalds. UNIX is a registered trademark of The Open Group.
+This site is not affiliated with Linus Torvalds or The Open Group in any way.
