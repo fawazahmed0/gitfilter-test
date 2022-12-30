@@ -3984,9 +3984,9 @@ class RepoFilter(object):
     #   If we need a repack, then nuke the reflogs and repack.
     #   If we need a reset, do a reset --hard
     reset = not GitUtils.is_repository_bare(target_working_dir)
-    RepoFilter.cleanup(target_working_dir, self._args.repack, reset,
-                       run_quietly=self._args.quiet,
-                       show_debuginfo=self._args.debug)
+    #RepoFilter.cleanup(target_working_dir, self._args.repack, reset,
+    #                   run_quietly=self._args.quiet,
+    #                   show_debuginfo=self._args.debug)
 
     # Let user know how long it took
     print(_("Completely finished after {:.2f} seconds.")
